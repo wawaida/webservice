@@ -2,10 +2,15 @@
 
 // include connection
 include 'db.php';
+include 'token.php';
+
+// verify token (1st senario - server client php call web service)
+isToken(); // proceed to next line if ok
  
 // query data
 // check jika client tidak hantar id, default '0'
 $id = isset($_GET['id']) ? $_GET['id']:0;
+$id = mysqli_real_escape_string($con, $id); // elak sql injection
 $sql = "SELECT * FROM film WHERE film_id = $id";
 $rs = mysqli_query($con, $sql);
 
@@ -17,7 +22,7 @@ if($rs){
         $data = new stdClass();
         $data->err = 'No Data';
     } else {
-        // berjaya patuh syarat
+        // berjaya : patuh syarat
         $data = $rows;
     }
     
