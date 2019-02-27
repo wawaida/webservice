@@ -1,0 +1,20 @@
+
+
+// make sure dah ada 1 file dlm github
+
+//copy file button dr 
+copy
+
+// clone file to git hub
+$ git clone https://github.com/wawaida/webservice.git
+
+// tambah file
+$ git add *
+
+// save data dalam github
+$ git commit -m "intro"
+
+// hantar file ke github
+$ git push
+
+//today
